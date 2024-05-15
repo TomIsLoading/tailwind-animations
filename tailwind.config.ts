@@ -8,13 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-9deg)" },
+          "50%": { transform: "rotate(9deg)" },
+        },
+      },
+      animation: {
+        "spin-slow": "spin 1s linear infinite",
+        wiggle: "wiggle 1s linear infinite",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;
